@@ -12,8 +12,6 @@ var minimumLength = function (s) {
     }
 
     return Object.keys(hash).reduce((acc, key) => {
-        if (hash[key] % 2 === 0) acc += 2;
-        else acc++;
-        return acc;
+        return (acc += hash[key] % 2 === 0 ? 2 : 1);
     }, 0);
 };
