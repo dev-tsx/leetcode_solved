@@ -2,14 +2,11 @@
  * @param {string} s
  * @return {number}
  */
-var minimumLength = function (s) {
-
-    const hash = {};
-
-    for (let i = 0; i < s.length; i++) {
-        const char = s[i];
-        hash[char] = (hash[char] || 0) + 1
-    }
+const minimumLength = s => {
+    const hash = Array.from(s).reduce((acc, char) => {
+        acc[char] = (acc[char] || 0) + 1;
+        return acc;
+    }, {})
 
     return Object.keys(hash).reduce((acc, key) => {
         return (acc += hash[key] % 2 === 0 ? 2 : 1);
