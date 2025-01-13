@@ -11,10 +11,9 @@ var minimumLength = function (s) {
         hash[char] = (hash[char] || 0) + 1
     }
 
-    let length = 0;
-    for(const key in hash) {
-        length += hash[key] % 2 === 0 ? 2 : 1;
-    }
-
-    return length;
+    return Object.keys(hash).reduce((acc, key) => {
+        if (hash[key] % 2 === 0) acc += 2;
+        else acc++;
+        return acc;
+    }, 0);
 };
