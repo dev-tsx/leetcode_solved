@@ -1,8 +1,8 @@
-function xorAllNums(nums1: number[], nums2: number[]): number {
-        let x1 = 0, x2 = 0;
+function xorAllNums(n1: number[], n2: number[]): number {
+        let XOR_1 = 0, XOR_2 = 0;
 
-        if (nums2.length % 2 != 0) for (const n of nums1) x1 ^= n;
-        if (nums1.length % 2 != 0) for (const n of nums2) x2 ^= n;
+        if (n2.length % 2 != 0) for (const n of n1) XOR_1 ^= n;
+        if (n1.length % 2 != 0) for (const n of n2) XOR_2 ^= n;
 
-        return x1 ^ x2;
+        return XOR_1 ^ XOR_2;
 };
