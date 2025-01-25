@@ -9,5 +9,5 @@ function longestPalindrome(s: string): number {
         ones += +val % 2;
     }
 
-    return s.length + (!ones || ones === 1 ? 0 : -ones + 1);
+    return s.length + (!ones || ones == 1 ? 0 : -ones + 1);
 };
