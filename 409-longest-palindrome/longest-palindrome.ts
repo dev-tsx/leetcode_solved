@@ -5,9 +5,8 @@ function longestPalindrome(s: string): number {
         hash[char] = (hash[char] || 0) + 1;
     }
     let ones = 0;
-    for (const key in hash) {
-        hash[key] = hash[key] % 2;
-        ones += hash[key];
+    for (const val of Object.values(hash)) {
+        ones += +val % 2;
     }
     if (!ones || ones === 1) return s.length;
 
