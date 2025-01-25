@@ -8,7 +8,6 @@ function longestPalindrome(s: string): number {
     for (const val of Object.values(hash)) {
         ones += +val % 2;
     }
-    if (!ones || ones === 1) return s.length;
 
-    return s.length - ones + 1;
+    return s.length + (!ones || ones === 1 ? 0 : -ones + 1);
 };
