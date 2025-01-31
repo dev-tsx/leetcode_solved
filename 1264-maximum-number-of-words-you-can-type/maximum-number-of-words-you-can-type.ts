@@ -1,14 +1,9 @@
 function canBeTypedWords(text: string, brokenLetters: string): number {
     const letters = new Set([...brokenLetters]);
 
-    const words = text.split(' ').map(word => {
-        for (const letter of word) {
-            if (letters.has(letter)) {
-                return false;
-            }
-        }
-        return true;
-    })
+    return text.split(' ').reduce((count, word) => {
 
-    return words.filter(Boolean).length
+        if (![...word].some(i => letters.has(i))) count++;
+        return count
+    }, 0)
 };
