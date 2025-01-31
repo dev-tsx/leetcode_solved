@@ -4,4 +4,4 @@ const areOccurrencesEqual = (s: string): boolean =>
             acc[el] = (acc[el] || 0) + 1;
             return acc;
         }, {}))
-    ).size === 1
+    ).size == 1
