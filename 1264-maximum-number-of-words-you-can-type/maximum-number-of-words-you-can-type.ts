@@ -1,3 +1,3 @@
 const canBeTypedWords =
-    (text: string, b: string, l = new Set(b)): number =>
-        text.split(' ').reduce((c, w) => ![...w].some(i => l.has(i)) ? ++c : c, 0)
+    (t: string, b: string, l = new Set(b)): number =>
+        t.split(' ').reduce((c, w) => ![...w].some(i => l.has(i)) ? ++c : c, 0)
