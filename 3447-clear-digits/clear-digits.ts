@@ -1,9 +1,6 @@
 function clearDigits(s: string): string {
-    const stack = [];
-
-    for (const char of s) {
-        if (!isNaN(+char)) stack.pop();
-        else stack.push(char);
-    }
-    return stack.join('');
+    return [...s].reduce((acc, char) => {
+        !isNaN(+char) ? acc.pop() : acc.push(char)
+        return acc;
+    }, []).join('');
 };
