@@ -13,13 +13,5 @@ function maximumSum(nums: number[]): number {
             hashSum[sum][1] = num;
         }
     }
-
-    let maxSum = -1;
-    for (const [a, b] of Object.values(hashSum)) {
-        if (b > 0) {
-            maxSum = Math.max(maxSum, a + b);
-        }
-    }
-
-    return maxSum;
+    return Math.max(...Object.values(hashSum).map(([a, b]) => b > 0 ? a + b : -1)) || -1
 }
