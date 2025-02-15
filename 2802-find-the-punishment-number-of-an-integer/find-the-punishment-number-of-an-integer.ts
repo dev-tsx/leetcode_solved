@@ -4,9 +4,7 @@ function punishmentNumber(n: number): number {
 
     for (let i = 1; i <= n; i++) {
         const squared = i * i;
-        if (canPartition(squared, i, 0)) {
-            total += squared;
-        }
+        if (canPartition(squared, i, 0)) total += squared;
     }
 
     return total;
