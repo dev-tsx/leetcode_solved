@@ -1,18 +1,21 @@
 function candy(ratings: number[]): number {
-    let n = ratings.length;
-    let candies = new Array(n).fill(1);
+    let sum = 0, 
+    len = ratings.length, 
+    ltr = Array.from({ length: len }, () => 1), 
+    rtl = [...ltr];
 
-    for (let i = 1; i < n; i++) {
+    for (let i = 1; i < len; i++) {
         if (ratings[i] > ratings[i - 1]) {
-            candies[i] = candies[i - 1] + 1;
+            ltr[i] = ltr[i - 1] + 1;
         }
     }
-
-    for (let i = n - 2; i >= 0; i--) {
+    for (let i = len - 2; i >= 0; i--) {
         if (ratings[i] > ratings[i + 1]) {
-            candies[i] = Math.max(candies[i], candies[i + 1] + 1);
+            rtl[i] = rtl[i + 1] + 1;
         }
     }
-
-    return candies.reduce((sum, c) => sum + c, 0);
+    for (let i = 0; i < len; i++) {
+        sum += Math.max(ltr[i], rtl[i]);
+    }
+    return sum;
 };
