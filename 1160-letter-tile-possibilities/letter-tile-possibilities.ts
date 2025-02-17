@@ -16,7 +16,7 @@ function backtrack(counter) {
             total += 1;
             counter.set(char, freq - 1);
             total += backtrack(counter);
-            counter.set(char, freq); // Восстановление состояния (backtracking)
+            counter.set(char, freq);
         }
     }
     return total;
