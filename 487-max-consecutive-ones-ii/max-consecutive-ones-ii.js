@@ -1,16 +1,16 @@
 function findMaxConsecutiveOnes(nums) {
     let longestSequence = 0;
     let left = 0, right = 0;
-    let numZeroes = 0;
+    let zeroCount = 0;
 
     while (right < nums.length) {
         if (nums[right] === 0) {
-            numZeroes++;
+            zeroCount++;
         }
 
-        while (numZeroes === 2) {
+        while (zeroCount === 2) {
             if (nums[left] === 0) {
-                numZeroes--;
+                zeroCount--;
             }
             left++;
         }
