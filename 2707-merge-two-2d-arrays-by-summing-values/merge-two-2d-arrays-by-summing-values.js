@@ -16,5 +16,5 @@ var mergeArrays = function (nums1, nums2) {
     }
 
     const result = Object.keys(hash).map(id => [+id, hash[id]]);
-    return result.sort((a, b) => a - b)
+    return result;
 };
