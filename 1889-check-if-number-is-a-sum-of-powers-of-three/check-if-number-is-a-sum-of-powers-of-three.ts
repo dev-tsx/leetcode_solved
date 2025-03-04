@@ -1,11 +1,12 @@
 function checkPowersOfThree(n: number): boolean {
-    const powers = new Set<number>();
+    const powers: number[] = []
 
     for (let i = 0; i < 16; i++) {
-        powers.add(Math.pow(3, i));
+        powers.push(Math.pow(3, i));
     }
 
-    for (let power of Array.from(powers).reverse()) {
+    for (let i = 15; i >= 0; i--) {
+        const power = powers[i];
         if (n >= power) n -= power;
     }
 
