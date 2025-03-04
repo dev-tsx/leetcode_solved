@@ -3,6 +3,5 @@ function checkPowersOfThree(n: number): boolean {
         const power = Math.pow(3, i);
         if (n >= power) n -= power;
     }
-
     return n === 0;
 }
