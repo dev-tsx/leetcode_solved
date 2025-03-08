@@ -4,9 +4,7 @@
  * @return {number}
  */
 var minimumRecolors = function (blocks, k) {
-    if (k === blocks.length) {
-        return Math.max(0, k - blocks.replaceAll('W', "").length)
-    }
+
     const subblocks = [];
     for (let i = 0; i < blocks.length - k + 1; i++) {
         subblocks.push(blocks.slice(i, i + k));
