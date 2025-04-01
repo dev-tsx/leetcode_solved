@@ -1,10 +1,7 @@
 function canJump(nums: number[]): boolean {
-    let jump = 0, i = 0, lastIndx = nums.length - 1;
-
-    while (i <= jump) {
-        jump = Math.max(jump, i + nums[i]);
-        if (jump >= lastIndx) return true;
-        i++;
+    let lastIndx = nums.length - 1;
+    for (let i = lastIndx; i >= 0; i--) {
+        if (lastIndx <= i + nums[i]) lastIndx = i;
     }
-    return false;
+    return lastIndx == 0
 };
