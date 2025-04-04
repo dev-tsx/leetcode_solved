@@ -1,10 +1,6 @@
-const canJump = (n) => {
-    let a = 0, b = n.length;
-
-    for (let c = 0; c < b; c++) {
-        if (a < c) return false;
-        a = Math.max(a, n[c] + c);
-        if (a >= b - 1) return true;
-    }
-    return false;
-};
+const canJump = (n, m = 0, L = n.length) =>
+    n.reduce((cur, _, i) => {
+        if (i > m) return false;
+        m = Math.max(m, i + n[i]);
+        return m >= L - 1 || cur;
+    }, false);
