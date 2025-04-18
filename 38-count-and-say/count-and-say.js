@@ -8,7 +8,7 @@ var countAndSay = function (n) {
         let next = "";
         for (let j = 0, k = 0; j < str.length; j = k) {
             while (k < str.length && str[k] == str[j]) k++;
-            next += (k - j).toString() + str[j];
+            next += String(k - j) + str[j];
         }
         str = next;
     }
