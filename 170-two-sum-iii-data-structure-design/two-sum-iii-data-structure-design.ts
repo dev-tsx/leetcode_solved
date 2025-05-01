@@ -1,22 +1,19 @@
 class TwoSum {
-    array: number[];
+    nums: Record<number, number>;
     constructor() {
-        this.array = [];
+        this.nums = {};
     }
 
     add(number: number): void {
-        this.array.push(number);
-        this.array.sort((a, b) => a - b);
+        if (!this.nums[number]) this.nums[number] = 1;
+        else this.nums[number]++;
     }
 
     find(value: number): boolean {
-        let start = 0;
-        let end = this.array.length - 1;
-        while (start < end) {
-            const sum = this.array[start] + this.array[end]
-            if (sum == value) return true;
-            if (sum > value) end--;
-            else start++;
+        const keys = Object.keys(this.nums);
+
+        for (const key of keys) {
+            if (this.nums[key] > 1 && +key * 2 == value || this.nums[value - +key] && (value - +key) !== +key) return true;
         }
         return false;
     }
