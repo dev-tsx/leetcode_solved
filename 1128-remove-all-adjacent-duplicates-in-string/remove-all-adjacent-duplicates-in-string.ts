@@ -1,7 +1,6 @@
 function removeDuplicates(s: string): string {
     const stack = [];
-    const arr = s.split('');
-    for (const char of arr) {
+    for (const char of s) {
         if (!stack.length || stack[stack.length - 1] !== char) {
             stack.push(char);
         } else {
