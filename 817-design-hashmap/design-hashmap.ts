@@ -1,5 +1,6 @@
 class Bucket<K, V> {
-    items: [K, V][]
+    items: [K, V][];
+
     constructor() {
         this.items = [];
     }
@@ -30,22 +31,31 @@ class Bucket<K, V> {
     }
 }
 
-
 class MyHashMap {
-    data: Bucket<number, number>;
+    private buckets: Bucket<number, number>[];
+    private size: number;
+
     constructor() {
-        this.data = new Bucket();
+        this.size = 1000;
+        this.buckets = Array.from({ length: this.size }, () => new Bucket());
+    }
+
+    private hash(key: number): number {
+        return key % this.size;
     }
 
     put(key: number, value: number): void {
-        this.data.update(key, value);
+        const index = this.hash(key);
+        this.buckets[index].update(key, value);
     }
 
     get(key: number): number {
-        return this.data.get(key)
+        const index = this.hash(key);
+        return this.buckets[index].get(key);
     }
 
     remove(key: number): void {
-        this.data.remove(key)
+        const index = this.hash(key);
+        this.buckets[index].remove(key);
     }
 }
