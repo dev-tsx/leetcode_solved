@@ -1,7 +1,7 @@
-const numEquivDominoPairs = (dominoes: number[][]): number => dominoes.reduce((map, [a, b]) => {
-    const key = a <= b ? `${a},${b}` : `${b},${a}`;
-    const count = map[key] || 0;
-    map.pairs += count;
-    map[key] = count + 1;
+const numEquivDominoPairs = (d: number[][]): number => d.reduce((map, [a, b]) => {
+    const k = a <= b ? `${a},${b}` : `${b},${a}`;
+    const c = map[k] || 0;
+    map.p += c;
+    map[k] = c + 1;
     return map;
-}, { pairs: 0 }).pairs
+}, { p: 0 }).p
