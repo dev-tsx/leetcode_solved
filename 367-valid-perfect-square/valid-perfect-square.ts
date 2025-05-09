@@ -15,5 +15,5 @@ function isPerfectSquare(num: number): boolean {
             low = x + 1;
         }
     }
-    return high ** 2 == num;
+    return false;
 };
