@@ -1,5 +1,5 @@
 function threeConsecutiveOdds(arr: number[]): boolean {
-    for (let i = 1; i < arr.length; i++) {
+    for (let i = 1; i < arr.length - 1; i++) {
         const cur = arr[i];
         const prev = arr[i - 1];
         const next = arr[i + 1];
