@@ -9,8 +9,8 @@ var isHappy = function (n) {
 
     while (true) {
         if (fast == 1) return true;
-        if (fast == slow) return false;
-        fast = sumOfDigitsPower(sumOfDigitsPower(fast));
         slow = sumOfDigitsPower(slow);
+        fast = sumOfDigitsPower(sumOfDigitsPower(fast));
+        if (fast == slow) return false;
     }
 };
