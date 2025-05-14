@@ -8,13 +8,9 @@ const sumOfDigitsPower = (num) => [..."" + num].reduce((sum, digit) => {
     return sum;
 }, 0)
 
-var isHappy = function (n) {
-    const numbers = new Set();
-
-    while (true) {
-        numbers.add(n);
-        if (n == 1) return true;
-        n = sumOfDigitsPower(n);
-        if (numbers.has(n)) return false;
-    }
+var isHappy = function (n, seen = new Set()) {
+    if (n == 1) return true;
+    if (seen.has(n)) return false;
+    seen.add(n);
+    return isHappy(sumOfDigitsPower(n), seen);
 };
