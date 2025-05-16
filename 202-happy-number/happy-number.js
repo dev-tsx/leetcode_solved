@@ -7,10 +7,10 @@ var isHappy = function (n) {
     let slow = n;
     let fast = sumOfDigitsPower(n);
 
-    while (true) {
-        if (fast == 1) return true;
+    while (fast !== 1) {
         slow = sumOfDigitsPower(slow);
         fast = sumOfDigitsPower(sumOfDigitsPower(fast));
         if (fast == slow) return false;
     }
+    return true;
 };
