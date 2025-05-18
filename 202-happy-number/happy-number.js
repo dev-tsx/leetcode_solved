@@ -1,16 +1,12 @@
-const sumOfDigitsPower = (num) => [..."" + num].reduce((sum, digit) => {
-    sum += Number(digit) ** 2;
-    return sum;
-}, 0)
+const fn = (n) => [..."" + n].reduce((s, d) => (s += Number(d) ** 2), 0)
 
 var isHappy = function (n) {
-    let slow = n;
-    let fast = sumOfDigitsPower(n);
+    let s = n, f = fn(n);
 
-    while (fast !== 1) {
-        slow = sumOfDigitsPower(slow);
-        fast = sumOfDigitsPower(sumOfDigitsPower(fast));
-        if (fast == slow) return false;
+    while (f !== 1) {
+        s = fn(s);
+        f = fn(fn(f));
+        if (f == s) return false;
     }
     return true;
 };
