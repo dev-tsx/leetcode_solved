@@ -1,7 +1,9 @@
-const fn = (n) => [..."" + n].reduce((s, d) => (s += Number(d) ** 2), 0)
+const isHappy = (x) => {
+    const fn = (n) =>
+        [..."" + n].reduce((s, d) =>
+            (s += Number(d) ** 2), 0);
+    let s = x, f = fn(x);
 
-var isHappy = function (n) {
-    let s = n, f = fn(n);
 
     while (f !== 1) {
         s = fn(s);
