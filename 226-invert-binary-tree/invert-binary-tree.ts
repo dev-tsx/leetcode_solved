@@ -14,10 +14,10 @@
 
 function invertTree(root: TreeNode | null): TreeNode | null {
 
-    if (root == null) return null;
+    if (!root) return null;
 
-    if (root.left != null) invertTree(root.left);
-    if (root.right != null) invertTree(root.right);
+    root.left && invertTree(root.left);
+    root.right && invertTree(root.right);
 
     [root.left, root.right] = [root.right, root.left]
     return root;
