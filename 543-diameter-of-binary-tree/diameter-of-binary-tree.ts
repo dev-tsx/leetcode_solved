@@ -1,19 +1,17 @@
 function diameterHelper(node) {
-    if (node == null) return [0, 0];
+    if (node == null) return { h: 0, d: 0 };
 
     const lh = diameterHelper(node.left);
     const rh = diameterHelper(node.right);
 
-    const height = Math.max(lh[1], rh[1]) + 1;
-    const diameter = Math.max(lh[0], rh[0], lh[1] + rh[1]);
+    const height = Math.max(lh.h, rh.h) + 1;
+    const diameter = Math.max(lh.d, rh.d, lh.h + rh.h);
 
-    return [diameter, height];
+    return { h: height, d: diameter };
 }
 
 function diameterOfBinaryTree(root: TreeNode | null): number {
     if (root == null) return 0;
 
-    const [d] = diameterHelper(root);
-
-    return d
+    return diameterHelper(root).d;
 };
