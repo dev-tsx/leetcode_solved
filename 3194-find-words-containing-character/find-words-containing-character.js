@@ -3,6 +3,4 @@
  * @param {character} x
  * @return {number[]}
  */
-var findWordsContaining = function(words, x) {
-return words.map((word, i) => [word.includes(x), i]).filter(word => word[0]).map(word => word[1])
-};
+const findWordsContaining = (w, x) => w.map((e, i) => [e.includes(x), i]).filter(e => e[0]).map(e => e[1])
