@@ -1,5 +1,3 @@
-const NIL_VALUE = -1;
-
 class FirstUnique {
     dupes: Set<number>;
     uniqs: Set<number>;
@@ -15,7 +13,7 @@ class FirstUnique {
     showFirstUnique(): number {
         return (this.uniqs.size > 0) ? 
             this.uniqs.values().next().value : 
-            NIL_VALUE;
+            -1;
     }
 
     add(value: number): void {
