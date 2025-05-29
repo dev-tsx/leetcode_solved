@@ -1,15 +1,16 @@
-function longestOnes(nums: number[], k: number): number {
-    const zeroIndices = [];
-    let left = 0,
-        max = 0;
+function longestOnes(n: number[], k: number): number {
+    const c = [],
+        l = n.length;
+    let s = 0,
+        m = 0;
 
-    for (let i = 0; i < nums.length; i++) {
-        if (!nums[i]) zeroIndices.push(i);
+    for (let e = 0; e < l; e++) {
+        if (!n[e]) c.push(e);
 
-        if (zeroIndices.length > k) {
-            left = zeroIndices.shift() + 1;
+        if (c.length > k) {
+            s = c.shift() + 1;
         }
-        max = Math.max(max, i - left + 1);
+        m = Math.max(m, e - s + 1);
     }
-    return max;
+    return m;
 }
