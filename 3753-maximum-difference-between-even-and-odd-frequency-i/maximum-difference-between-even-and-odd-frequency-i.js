@@ -10,17 +10,14 @@ var maxDifference = function (s) {
         count[lastCharCode - s[i].charCodeAt(0)]++;
     }
 
-    let odd = 0;
-    let even = 0;
-    
-
-    for (const val of count.filter(Boolean)) {
-        if (val % 2) {
-            odd = odd == 0 ? val : Math.max(odd, val)
+    const diffs = count.reduce((obj, val) => {
+        if (!val) return obj;
+        if (val % 2 == 0) {
+            obj.even = obj.even ? Math.min(obj.even, val) : val;
         } else {
-            even = even == 0 ? val : Math.min(even, val)
+            obj.odd = obj.odd ? Math.max(obj.odd, val) : val;
         }
-    }
-    console.log(odd, even)
-    return odd - even;
+        return obj;
+    }, { odd: null, even: null })
+    return diffs.odd - diffs.even;
 };
