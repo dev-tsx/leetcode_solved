@@ -9,9 +9,18 @@ var maxDifference = function (s) {
     for (let i = 0; i < s.length; i++) {
         count[lastCharCode - s[i].charCodeAt(0)]++;
     }
-    const values = count.filter(Boolean);
-    const odd = Math.max(...values.filter(a => a % 2))
-    const even = Math.min(...values.filter(a => a % 2 == 0))
 
-    return odd - even
+    let odd = 0;
+    let even = 0;
+    
+
+    for (const val of count.filter(Boolean)) {
+        if (val % 2) {
+            odd = odd == 0 ? val : Math.max(odd, val)
+        } else {
+            even = even == 0 ? val : Math.min(even, val)
+        }
+    }
+    console.log(odd, even)
+    return odd - even;
 };
