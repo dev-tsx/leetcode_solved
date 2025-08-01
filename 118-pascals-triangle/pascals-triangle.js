@@ -4,11 +4,7 @@
  */
 function generate(numRows) {
 
-    const triangle = [];
-
-    for (let i = 0; i < numRows; i++) {
-        triangle[i] = Array(i + 1).fill(1);
-    }
+    const triangle = Array.from({length:numRows}, (_,i) => Array.from({length:i + 1}, () => 1));
 
     for (let row = 2; row < numRows; row++) {
         for (let col = 1; col < triangle[row].length - 1; col++) {
