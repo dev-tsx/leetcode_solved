@@ -1,18 +1,11 @@
-/**
- * @param {number} numRows
- * @return {number[][]}
- */
-function generate(numRows) {
+const generate = (L) => {
 
-    const triangle = Array.from({length:numRows}, (_,i) => Array.from({length:i + 1}, () => 1));
+    const res = Array.from({ length: L }, (_, i) => Array.from({ length: i + 1 }, () => 1));
 
-    for (let row = 2; row < numRows; row++) {
-        for (let col = 1; col < triangle[row].length - 1; col++) {
-            const prevRowPrevColNum = triangle[row - 1][col - 1];
-            const prevRowCurrColNum = triangle[row - 1][col];
-
-            triangle[row][col] = prevRowPrevColNum + prevRowCurrColNum;
+    for (let r = 2; r < L; r++) {
+        for (let c = 1; c < res[r].length - 1; c++) {
+            res[r][c] = res[r - 1][c - 1] + res[r - 1][c];
         }
     }
-    return triangle
+    return res;
 };
