@@ -1,12 +1,13 @@
 var minCost = function (basket1, basket2) {
-    const count = new Map();
+    const count = {};
 
-    for (const fruit of basket1) count.set(fruit, (count.get(fruit) || 0) + 1);
-    for (const fruit of basket2) count.set(fruit, (count.get(fruit) || 0) - 1);
-
+    for (let i = 0; i < basket1.length; i++) {
+        count[basket1[i]] = (count[basket1[i]] || 0) + 1;
+        count[basket2[i]] = (count[basket2[i]] || 0) - 1;
+    }
     const needToSwap = [];
 
-    for (const [fruit, diff] of count) {
+    for (const [fruit, diff] of Object.entries(count)) {
         if (diff % 2 !== 0) return -1;
         const times = Math.abs(diff) / 2;
         for (let i = 0; i < times; i++) {
