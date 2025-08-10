@@ -10,9 +10,10 @@ const reorderedPowerOf2 = (n) => {
     for (let i = 0; i < 30; i++) {
         powersMap[i] = 2 ** i;
     }
-    const sorted = Object.values(powersMap).map(v =>
+    const sortedMap = Object.values(powersMap).map(v =>
         numToSortedString(v)).sort((a, b) => a - b);
 
     const value = numToSortedString(n);
-    return sorted.includes(value);
+    
+    return sortedMap.includes(value);
 };
