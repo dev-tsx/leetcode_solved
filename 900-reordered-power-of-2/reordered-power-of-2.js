@@ -9,9 +9,7 @@ const reorderedPowerOf2 = (n) => {
     const value = numToSortedString(n);
     for (let i = 0; i < 30; i++) {
         const sortedPow = numToSortedString(2 ** i);
-        if (sortedPow == value) {
-            return true;
-        }
+        if (sortedPow == value) return true;
     }
     return false
 };
