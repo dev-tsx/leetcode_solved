@@ -1,7 +1,8 @@
 function totalMoney(n: number): number {
     let mondayAmount = 0;
     let weekDay = 0;
-    let result = 0;
+    let money = 0;
+    
     for (let i = 0; i < n; i++) {
 
         if (weekDay === 7) {
@@ -10,7 +11,7 @@ function totalMoney(n: number): number {
         } else {
             weekDay++;
         }
-        result += mondayAmount + weekDay
+        money += mondayAmount + weekDay
     }
-    return result;
+    return money;
 };
