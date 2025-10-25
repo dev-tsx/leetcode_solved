@@ -1,17 +1,18 @@
 function totalMoney(n: number): number {
-    let mondayAmount = 0;
-    let weekDay = 0;
+    const week = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+    let weeksCount = 0;
+    let day = 0;
     let money = 0;
-    
+
     for (let i = 0; i < n; i++) {
 
-        if (weekDay === 7) {
-            weekDay = 1;
-            mondayAmount++;
+        if (!week[day]) {
+            day = 1;
+            weeksCount++;
         } else {
-            weekDay++;
+            day++;
         }
-        money += mondayAmount + weekDay
+        money += weeksCount + day
     }
     return money;
 };
